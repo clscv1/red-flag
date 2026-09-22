@@ -1,0 +1,22 @@
+[project]
+name = "jev-experiment"
+version = "0.2.0"
+description = "Red flag detector powered by Jev"
+readme = "README.md"
+authors = [
+    { name = "Pranshu Sharma", email = "pranshu.sharma@circles.co" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "langchain-typesafe>=0.0.1a3",
+    "python-dotenv>=1.0.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+]
+
+[project.scripts]
+red-flag = "jev_experiment.server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
