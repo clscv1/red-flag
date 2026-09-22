@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import os
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -49,8 +48,8 @@ app.mount("/", StaticFiles(directory=WEB_DIR, html=True), name="web")
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the red flag detector")
-    parser.add_argument("--host", default=os.environ.get("HOST", "127.0.0.1"))
-    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8765")))
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=8765)
     args = parser.parse_args()
     url = f"http://{args.host}:{args.port}/"
     print(f"🚩 Red flag detector: {url}")
